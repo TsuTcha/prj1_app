@@ -26,8 +26,8 @@ gauth.credentials = credentials
 drive = GoogleDrive(gauth)
 
 #st.session_state.query_params = st.experimental_get_query_params()
-#st.session_state.file_name = st.session_state.query_params.get("user_id")[0]
-st.session_state.file_name = "test"
+st.session_state.file_name = st.session_state.query_params.get("user_id")[0]
+ #st.session_state.file_name = "test"
 
 # 初期状態を設定
 if "page" not in st.session_state:
