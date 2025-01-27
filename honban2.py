@@ -295,6 +295,16 @@ if st.session_state.page == "home":
 
 elif st.session_state.page == "task1":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked" not in st.session_state:
         st.session_state.start_button_clicked = False
@@ -345,6 +355,16 @@ elif st.session_state.page == "task1":
             #go_to_page("t1p1")
 
 elif st.session_state.page == "t1p1":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t1p1" not in st.session_state:
@@ -468,6 +488,16 @@ elif st.session_state.page == "t1p1":
 
 elif st.session_state.page == "t1p2":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t1p2" not in st.session_state:
         st.session_state.start_button_clicked_t1p2 = False
@@ -569,6 +599,16 @@ elif st.session_state.page == "t1p2":
                 #go_to_page("t1p3")
 
 elif st.session_state.page == "t1p3":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t1p3" not in st.session_state:
@@ -672,6 +712,16 @@ elif st.session_state.page == "t1p3":
 
 elif st.session_state.page == "t1p4":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t1p4" not in st.session_state:
         st.session_state.start_button_clicked_t1p4 = False
@@ -774,6 +824,16 @@ elif st.session_state.page == "t1p4":
 
 elif st.session_state.page == "t1p5":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t1p5" not in st.session_state:
         st.session_state.start_button_clicked_t1p5 = False
@@ -875,6 +935,17 @@ elif st.session_state.page == "t1p5":
                 #go_to_page("task2")
 
 elif st.session_state.page == "task2":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2" not in st.session_state:
         st.session_state.start_button_clicked_t2 = False
@@ -897,6 +968,16 @@ elif st.session_state.page == "task2":
             #go_to_page("t2p1")
 
 elif st.session_state.page == "t2p1":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t2p1" not in st.session_state:
@@ -1000,6 +1081,16 @@ elif st.session_state.page == "t2p1":
 
 elif st.session_state.page == "t2p2":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2p2" not in st.session_state:
         st.session_state.start_button_clicked_t2p2 = False
@@ -1101,6 +1192,16 @@ elif st.session_state.page == "t2p2":
                 #go_to_page("t2p3")
 
 elif st.session_state.page == "t2p3":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t2p3" not in st.session_state:
@@ -1204,6 +1305,16 @@ elif st.session_state.page == "t2p3":
 
 elif st.session_state.page == "t2p4":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2p4" not in st.session_state:
         st.session_state.start_button_clicked_t2p4 = False
@@ -1305,6 +1416,16 @@ elif st.session_state.page == "t2p4":
                 #go_to_page("t2p5")
 
 elif st.session_state.page == "t2p5":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t2p5" not in st.session_state:
@@ -1408,6 +1529,16 @@ elif st.session_state.page == "t2p5":
 
 elif st.session_state.page == "t2p6":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2p6" not in st.session_state:
         st.session_state.start_button_clicked_t2p6 = False
@@ -1509,6 +1640,16 @@ elif st.session_state.page == "t2p6":
                 #go_to_page("t2p7")
 
 elif st.session_state.page == "t2p7":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t2p7" not in st.session_state:
@@ -1612,6 +1753,16 @@ elif st.session_state.page == "t2p7":
 
 elif st.session_state.page == "t2p8":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2p8" not in st.session_state:
         st.session_state.start_button_clicked_t2p8 = False
@@ -1713,6 +1864,16 @@ elif st.session_state.page == "t2p8":
                 #go_to_page("t2p9")
 
 elif st.session_state.page == "t2p9":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t2p9" not in st.session_state:
@@ -1816,6 +1977,16 @@ elif st.session_state.page == "t2p9":
 
 elif st.session_state.page == "t2p10":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2p10" not in st.session_state:
         st.session_state.start_button_clicked_t2p10 = False
@@ -1917,6 +2088,16 @@ elif st.session_state.page == "t2p10":
                 #go_to_page("t2p11")
 
 elif st.session_state.page == "t2p11":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t2p11" not in st.session_state:
@@ -2020,6 +2201,16 @@ elif st.session_state.page == "t2p11":
 
 elif st.session_state.page == "t2p12":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2p12" not in st.session_state:
         st.session_state.start_button_clicked_t2p12 = False
@@ -2121,6 +2312,16 @@ elif st.session_state.page == "t2p12":
                 #go_to_page("t2p13")
 
 elif st.session_state.page == "t2p13":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # セッション状態の初期化
     if "start_button_clicked_t2p13" not in st.session_state:
@@ -2224,6 +2425,16 @@ elif st.session_state.page == "t2p13":
 
 elif st.session_state.page == "t2p14":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2p14" not in st.session_state:
         st.session_state.start_button_clicked_t2p14 = False
@@ -2326,6 +2537,16 @@ elif st.session_state.page == "t2p14":
 
 elif st.session_state.page == "t2p15":
 
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t2p15" not in st.session_state:
         st.session_state.start_button_clicked_t2p15 = False
@@ -2427,6 +2648,17 @@ elif st.session_state.page == "t2p15":
                 #go_to_page("questionnaire")
 
 elif st.session_state.page == "questionnaire":
+
+    custom_css = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu {visibility: visible;}
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "questionnaire" not in st.session_state:
         st.session_state.questionnaire = False
