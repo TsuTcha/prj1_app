@@ -428,7 +428,7 @@ elif st.session_state.page == "t1p1":
 
                             st.success("回答を提出しました！次の問題に進んでください。")
 
-                            st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均より優れている」でした。", unsafe_allow_html=True)
 
                             st.session_state.page = "t1p2"
 
@@ -533,7 +533,7 @@ elif st.session_state.page == "t1p2":
                             st.session_state.question_t1p2_finished = True
 
                             st.success("回答を提出しました！次の問題に進んでください。")
-                            st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均より優れている」でした。", unsafe_allow_html=True)
                             st.session_state.page = "t1p3"
 
                             retries += 5
@@ -635,7 +635,7 @@ elif st.session_state.page == "t1p3":
                             st.session_state.question_t1p3_finished = True
 
                             st.success("回答を提出しました！次の問題に進んでください。")
-                            st.markdown("#### ちなみに正解は「平均以下」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均以下」でした。", unsafe_allow_html=True)
                             st.session_state.page = "t1p4"
 
                             retries += 5
@@ -737,7 +737,7 @@ elif st.session_state.page == "t1p4":
                             st.session_state.question_t1p4_finished = True
 
                             st.success("回答を提出しました！次の問題に進んでください。")
-                            st.markdown("#### ちなみに正解は「平均以下」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均以下」でした。", unsafe_allow_html=True)
                             st.session_state.page = "t1p5"
 
                             retries += 5
@@ -839,7 +839,7 @@ elif st.session_state.page == "t1p5":
                             st.session_state.question_t1p5_finished = True
 
                             st.success("回答を提出しました！次の問題に進んでください。")
-                            st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均より優れている」でした。", unsafe_allow_html=True)
                             st.session_state.page = "task2"
 
                             retries += 5

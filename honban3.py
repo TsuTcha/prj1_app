@@ -468,7 +468,7 @@ elif st.session_state.page == "t1p1":
 
                             st.success("回答を提出しました！次の問題に進んでください。")
 
-                            st.markdown("#### ちなみに正解は「平均以下」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均以下」でした。", unsafe_allow_html=True)
 
                             st.session_state.page = "t1p2"
 
@@ -622,7 +622,7 @@ elif st.session_state.page == "t1p2":
 
                             st.success("回答を提出しました！次の問題に進んでください。")
 
-                            st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均より優れている」でした。", unsafe_allow_html=True)
 
                             st.session_state.page = "t1p3"
 
@@ -780,7 +780,7 @@ elif st.session_state.page == "t1p3":
 
                             st.success("回答を提出しました！次の問題に進んでください。")
 
-                            st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均より優れている」でした。", unsafe_allow_html=True)
 
                             st.session_state.page = "t1p4"
 
@@ -940,7 +940,7 @@ elif st.session_state.page == "t1p4":
 
                             st.success("回答を提出しました！次の問題に進んでください。")
 
-                            st.markdown("#### ちなみに正解は「平均以下」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均以下」でした。", unsafe_allow_html=True)
 
                             st.session_state.page = "t1p5"
 
@@ -1100,7 +1100,7 @@ elif st.session_state.page == "t1p5":
 
                             st.success("回答を提出しました！次の問題に進んでください。")
 
-                            st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
+                            st.markdown("#### 正解は「平均より優れている」でした。", unsafe_allow_html=True)
 
                             st.session_state.page = "task2"
 
