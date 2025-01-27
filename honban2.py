@@ -50,15 +50,6 @@ if st.session_state.page == "home":
 
     from streamlit.components.v1 import html
 
-    # カスタムHTMLでメニューを操作
-    custom_html = """
-        <script>
-        // GitHubボタンを非表示にする
-        document.querySelector('a[title="View source on GitHub"]').style.display = 'none';
-        </script>
-    """
-    html(custom_html)
-
     st.markdown('# ユーザアンケート トップページ')
 
     st.markdown('この度は、調査にご協力いただき誠にありがとうございます。 <br> 以下の指示に従って、順番にタスクを行ってください。', unsafe_allow_html=True)
