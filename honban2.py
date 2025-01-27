@@ -48,15 +48,15 @@ if st.session_state.page == "home":
         st.session_state.agreement_check = False
         st.session_state.form_submitted = 0
 
-    st.markdown(
+    hide_github_button = """
+        <style>
+        a[title="View source on GitHub"] {
+            display: none !important;
+        }
+        </style>
     """
-    a[title="View source on GitHub"] {
-        display: none;
-    }
-    """,
-    unsafe_allow_html=True
-)
-
+    st.markdown(hide_github_button, unsafe_allow_html=True)
+    
     st.markdown('# ユーザアンケート トップページ')
 
     st.markdown('この度は、調査にご協力いただき誠にありがとうございます。 <br> 以下の指示に従って、順番にタスクを行ってください。', unsafe_allow_html=True)
