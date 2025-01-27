@@ -321,7 +321,7 @@ elif st.session_state.page == "task1":
         st.image(image_path, caption="問題を解く画面の例その2")
         st.markdown("<hr>", unsafe_allow_html=True)
 
-        st.markdown('準備ができたら、下の「準備ができました」ボタンを押してください。練習問題(5問)が始まります。<br>【重要】画面の不具合がありましたら、右上の黒い点が3つあるボタンから「Rerun」を押してください。<br>この先でURLをリロードすると最初からやり直しになります。')
+        st.markdown('準備ができたら、下の「準備ができました」ボタンを押してください。練習問題(5問)が始まります。<br>【重要】画面の不具合がありましたら、右上の黒い点が3つあるボタンから「Rerun」を押してください。<br>この先でURLをリロードすると最初からやり直しになります。', unsafe_allow_html=True)
         st.session_state.page = "t1p1"
 
         if st.button("準備ができました。"):
