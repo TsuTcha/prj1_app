@@ -29,6 +29,14 @@ st.session_state.query_params = st.query_params
 st.session_state.file_name = st.session_state.query_params.get("user_id")
 #st.session_state.file_name = "test"
 
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # 初期状態を設定
 if "page" not in st.session_state:
     st.session_state.page = "home"
