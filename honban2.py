@@ -48,8 +48,6 @@ if st.session_state.page == "home":
         st.session_state.agreement_check = False
         st.session_state.form_submitted = 0
 
-    from streamlit.components.v1 import html
-
     st.markdown('# ユーザアンケート トップページ')
 
     st.markdown('この度は、調査にご協力いただき誠にありがとうございます。 <br> 以下の指示に従って、順番にタスクを行ってください。', unsafe_allow_html=True)
