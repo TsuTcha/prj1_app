@@ -48,15 +48,17 @@ if st.session_state.page == "home":
         st.session_state.agreement_check = False
         st.session_state.form_submitted = 0
 
-    # GitHubボタンを非表示にするCSS
-    hide_github_button = """
+    # カスタムCSSでメニューを調整
+    custom_css = """
         <style>
-        a[title="View source on GitHub"] {
-            display: none !important;
-        }
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        /* Rerunボタンだけを表示 */
+        #MainMenu > div > ul > li:nth-child(1) {visibility: visible;}
         </style>
     """
-    st.markdown(hide_github_button, unsafe_allow_html=True)
+    st.markdown(custom_css, unsafe_allow_html=True)
+
 
     st.markdown('# ユーザアンケート トップページ')
 
