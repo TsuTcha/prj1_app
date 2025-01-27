@@ -25,6 +25,15 @@ gauth = GoogleAuth()
 gauth.credentials = credentials
 drive = GoogleDrive(gauth)
 
+hide_github_button = """
+    <style>
+    ._githubIconContainer_1j7jf_8 {
+        display: none;
+    }
+    </style>
+"""
+st.markdown(hide_github_button, unsafe_allow_html=True)
+
 st.session_state.query_params = st.query_params
 st.session_state.file_name = st.session_state.query_params.get("user_id")
 #st.session_state.file_name = "test"
