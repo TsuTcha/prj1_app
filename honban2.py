@@ -462,99 +462,99 @@ elif st.session_state.page == "t1p2":
         st.session_state.question_t1p2_finished = False
         st.session_state.human_prediction_finished = False
 
-    if st.button("問題スタート"):
-        st.session_state.start = time.time()
-        st.session_state.start_button_clicked_t1p2 = True
+    #if st.button("問題スタート"):
+    st.session_state.start = time.time()
+    st.session_state.start_button_clicked_t1p2 = True
     
-    if st.session_state.start_button_clicked_t1p2:
-        st.title("練習問題 その2")
-        st.markdown("以下のプロフィール情報をもとに、生徒の数学の成績を予想してください。", unsafe_allow_html=True)
-        st.markdown("<hr>", unsafe_allow_html=True)
-        st.markdown("#### 生徒のプロフィール", unsafe_allow_html=True)
-        # ダミーデータの作成
-        df = pd.DataFrame({
-            '項目': ['家から学校までの通学時間', '毎週の勉強時間', '補習などの教育サポート', '学習塾など有料の教育サポート', '友人と出かける頻度', '学校を休んだ回数'],
-            '内容': ['15分以下 (全生徒の平均は15分程度)', '2時間以下 (全生徒の平均は2-5時間)', 'なし', 'なし', '多い', '4日 (全生徒の平均は6日程度)']
-        })
-        # DataFrameを表示
-        st.markdown(df.style.hide(axis="index").to_html(), unsafe_allow_html=True)
+    #if st.session_state.start_button_clicked_t1p2:
+    st.title("練習問題 その2")
+    st.markdown("以下のプロフィール情報をもとに、生徒の数学の成績を予想してください。", unsafe_allow_html=True)
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.markdown("#### 生徒のプロフィール", unsafe_allow_html=True)
+    # ダミーデータの作成
+    df = pd.DataFrame({
+        '項目': ['家から学校までの通学時間', '毎週の勉強時間', '補習などの教育サポート', '学習塾など有料の教育サポート', '友人と出かける頻度', '学校を休んだ回数'],
+        '内容': ['15分以下 (全生徒の平均は15分程度)', '2時間以下 (全生徒の平均は2-5時間)', 'なし', 'なし', '多い', '4日 (全生徒の平均は6日程度)']
+    })
+    # DataFrameを表示
+    st.markdown(df.style.hide(axis="index").to_html(), unsafe_allow_html=True)
+    st.markdown("<hr>", unsafe_allow_html=True)
+
+    form = st.form(key="ai2")
+
+    with form:
+        text0 = st.selectbox("生徒の成績はどちらだと思いますか？", ["選択してください", "平均より優れている", "平均以下"])
+        submitted = st.form_submit_button(label="AIの予想を見る")
+
+    if submitted:
+        if text0 == "選択してください":
+            st.error("回答を選んでください。")
+        else:
+            st.session_state.human_prediction_finished = True
+
+    if st.session_state.human_prediction_finished:
+
+        st.markdown("続いて、AIの予測を提示します。", unsafe_allow_html=True)
+        st.markdown("", unsafe_allow_html=True)
+        st.markdown("#### AIの予想：成績は平均より優れている", unsafe_allow_html=True)
         st.markdown("<hr>", unsafe_allow_html=True)
 
-        form = st.form(key="ai2")
+        form = st.form(key="t1p2")
 
         with form:
-            text0 = st.selectbox("生徒の成績はどちらだと思いますか？", ["選択してください", "平均より優れている", "平均以下"])
-            submitted = st.form_submit_button(label="AIの予想を見る")
+            text1 = st.selectbox("最終的に、生徒の成績はどちらだと思いますか？", ["選択してください", "平均より優れている", "平均以下"])
+            submitted_f = st.form_submit_button(label="回答を提出")
 
-        if submitted:
-            if text0 == "選択してください":
+        if submitted_f:
+
+            if text1 == "選択してください":
                 st.error("回答を選んでください。")
             else:
-                st.session_state.human_prediction_finished = True
+                st.markdown("回答を提出しています。しばらくお待ちください......(10秒程度かかる場合があります)", unsafe_allow_html=True)
+                max_retries=3
+                retries = 0
+                while retries <= max_retries:
+                    scopes = ['https://spreadsheets.google.com/feeds',
+                            'https://www.googleapis.com/auth/drive']
+                    json_keyfile_dict = st.secrets["service_account"]
+                    credentials = ServiceAccountCredentials.from_json_keyfile_dict(
+                        json_keyfile_dict, 
+                        scopes
+                    )
+                    gc = gspread.authorize(credentials)
+                    try:
+                        workbook = gc.open_by_key(st.session_state.file['id'])
+                        worksheet = workbook.sheet1
+                        st.session_state.end = time.time()
+                        elapsed_time = st.session_state.end - st.session_state.start
+                        worksheet.update_acell('B10', text1)
+                        worksheet.update_acell('B11', str(elapsed_time))
 
-        if st.session_state.human_prediction_finished:
+                        st.session_state.question_t1p2_finished = True
 
-            st.markdown("続いて、AIの予測を提示します。", unsafe_allow_html=True)
-            st.markdown("", unsafe_allow_html=True)
-            st.markdown("#### AIの予想：成績は平均より優れている", unsafe_allow_html=True)
-            st.markdown("<hr>", unsafe_allow_html=True)
+                        st.success("回答を提出しました！次の問題に進んでください。")
+                        st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
+                        st.session_state.page = "t1p3"
 
-            form = st.form(key="t1p2")
+                        retries += 5
+                    except Exception as e:
+                        print(e)
+                        f = drive.CreateFile({
+                            'title': st.session_state.file_name + "_t1p2",
+                            'mimeType': 'application/vnd.google-apps.spreadsheet',
+                            "parents": [{"id": st.secrets["folder_id"]}]
+                        })
+                        f.Upload()
+                        st.session_state.file = f
+                        if retries == max_retries:
+                            st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
-            with form:
-                text1 = st.selectbox("最終的に、生徒の成績はどちらだと思いますか？", ["選択してください", "平均より優れている", "平均以下"])
-                submitted_f = st.form_submit_button(label="回答を提出")
+                    retries += 1
 
-            if submitted_f:
-
-                if text1 == "選択してください":
-                    st.error("回答を選んでください。")
-                else:
-                    st.markdown("回答を提出しています。しばらくお待ちください......(10秒程度かかる場合があります)", unsafe_allow_html=True)
-                    max_retries=3
-                    retries = 0
-                    while retries <= max_retries:
-                        scopes = ['https://spreadsheets.google.com/feeds',
-                                'https://www.googleapis.com/auth/drive']
-                        json_keyfile_dict = st.secrets["service_account"]
-                        credentials = ServiceAccountCredentials.from_json_keyfile_dict(
-                            json_keyfile_dict, 
-                            scopes
-                        )
-                        gc = gspread.authorize(credentials)
-                        try:
-                            workbook = gc.open_by_key(st.session_state.file['id'])
-                            worksheet = workbook.sheet1
-                            st.session_state.end = time.time()
-                            elapsed_time = st.session_state.end - st.session_state.start
-                            worksheet.update_acell('B10', text1)
-                            worksheet.update_acell('B11', str(elapsed_time))
-
-                            st.session_state.question_t1p2_finished = True
-
-                            st.success("回答を提出しました！次の問題に進んでください。")
-                            st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
-                            st.session_state.page = "t1p3"
-
-                            retries += 5
-                        except Exception as e:
-                            print(e)
-                            f = drive.CreateFile({
-                                'title': st.session_state.file_name + "_t1p2",
-                                'mimeType': 'application/vnd.google-apps.spreadsheet',
-                                "parents": [{"id": st.secrets["folder_id"]}]
-                            })
-                            f.Upload()
-                            st.session_state.file = f
-                            if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
-
-                        retries += 1
-
-        if st.session_state.question_t1p2_finished:
-            if st.button("次の問題に進む"):
-                time.sleep(0.2)
-                #go_to_page("t1p3")
+    if st.session_state.question_t1p2_finished:
+        if st.button("次の問題に進む"):
+            time.sleep(0.2)
+            #go_to_page("t1p3")
 
 elif st.session_state.page == "t1p3":
 
