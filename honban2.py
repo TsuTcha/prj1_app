@@ -31,7 +31,7 @@ st.session_state.file_name = st.session_state.query_params.get("user_id")
 
 # 初期状態を設定
 if "page" not in st.session_state:
-    st.session_state.page = "t1p1"
+    st.session_state.page = "home"
 
 # ボタンを押すと状態を変更し再レンダリング
 def go_to_page(page_name):
