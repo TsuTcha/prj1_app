@@ -25,19 +25,6 @@ gauth = GoogleAuth()
 gauth.credentials = credentials
 drive = GoogleDrive(gauth)
 
-st.markdown(
-    """
-    <style>
-    .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
-    .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137,
-    .viewerBadge_text__1JaDK {
-        display: none;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 st.session_state.query_params = st.query_params
 st.session_state.file_name = st.session_state.query_params.get("user_id")
 #st.session_state.file_name = "test"
@@ -60,6 +47,19 @@ if st.session_state.page == "home":
         st.session_state.agreement = False
         st.session_state.agreement_check = False
         st.session_state.form_submitted = 0
+
+    st.markdown(
+    """
+    <style>
+    .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
+    .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137,
+    .viewerBadge_text__1JaDK {
+        display: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
     st.markdown('# ユーザアンケート トップページ')
 
