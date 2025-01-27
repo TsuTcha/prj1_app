@@ -48,14 +48,15 @@ if st.session_state.page == "home":
         st.session_state.agreement_check = False
         st.session_state.form_submitted = 0
 
-    # CSSでカスタマイズ
-    hide_streamlit_style = """
+    # GitHubボタンを非表示にするCSS
+    hide_github_button = """
         <style>
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
+        a[title="View source on GitHub"] {
+            display: none !important;
+        }
         </style>
     """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+    st.markdown(hide_github_button, unsafe_allow_html=True)
 
     st.markdown('# ユーザアンケート トップページ')
 
