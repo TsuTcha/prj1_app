@@ -1371,7 +1371,7 @@ elif st.session_state.page == "t2p5":
 
                             st.success("回答を提出しました！次の問題に進んでください。")
                             #st.markdown("#### ちなみに正解は「平均より優れている」でした。", unsafe_allow_html=True)
-                            st.session_state.page == "t2p6"
+                            st.session_state.page = "t2p6"
 
                             retries += 5
                         except Exception as e:
