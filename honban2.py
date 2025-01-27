@@ -54,7 +54,7 @@ if st.session_state.page == "home":
         footer {visibility: hidden;}
         header {visibility: hidden;}
         /* Rerunボタンだけを表示 */
-        #MainMenu > div > ul > li:nth-child(1) {visibility: visible;}
+        #MainMenu {visibility: visible;}
         </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
