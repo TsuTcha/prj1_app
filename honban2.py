@@ -31,7 +31,7 @@ st.session_state.file_name = st.session_state.query_params.get("user_id")
 
 hide_streamlit_style = """
     <style>
-    #MainMenu {visibility: hidden;}
+    #GithubIcon {visibility: hidden;}
     footer {visibility: hidden;}
     </style>
 """
