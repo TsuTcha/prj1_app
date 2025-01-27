@@ -25,9 +25,9 @@ gauth = GoogleAuth()
 gauth.credentials = credentials
 drive = GoogleDrive(gauth)
 
-#st.session_state.query_params = st.experimental_get_query_params()
-#st.session_state.file_name = st.session_state.query_params.get("user_id")[0]
-st.session_state.file_name = "test"
+st.session_state.query_params = st.query_params
+st.session_state.file_name = st.session_state.query_params.get("user_id")
+#st.session_state.file_name = "test"
 
 # 初期状態を設定
 if "page" not in st.session_state:
@@ -80,7 +80,7 @@ if st.session_state.page == "home":
         st.markdown("""本研究の実験は、クラウドソーシングプラットフォームからアプリケーションおよび回答フォームへアクセスして行います。
                     そのため、オンライン上で完結し、自宅など任意のインターネット接続環境で回答可能です。<br><br>
                     具体的に、以下の手順で取り組みます。<br>
-                    1. AIのサポートを受けながら生徒のプロフィール情報(学習状況や家庭環境など)をもとに数学成績を予測する意思決定課題に取り組みます。<br>
+                    1. AIのサポートを受けながら生徒のプロフィール情報(学習状況や家庭環境など)をもとに数学の成績を予測する意思決定課題に取り組みます。<br>
                     ※課題に対する特別な事前知識は必要ありません。1つの課題につき30秒程度、合計20問に取り組みます。<br>
                     ※各課題では、割り当てられたグループごとに異なる方法で、AIから提示される情報を参考にしながら回答します。<br>
                     2. すべての課題の終了後、AIの意思決定支援についての評価アンケートを行います。評価は7段階の尺度と自由記述で行います。<br><br>
@@ -90,7 +90,7 @@ if st.session_state.page == "home":
 
         st.markdown("""この研究にご協力いただくかどうかは、あなたの自由意思に委ねられています。回答中に取りやめることも可能です。
                     その場合は、途中までの回答は破棄され、研究に用いられることはありません。<br><br>
-                    一旦ご同意いただいて実験を完了した後、もし同意を撤回される場合は「同意撤回書」に日付とIDを記載し、下記の連絡先にメールにてご提出ください。
+                    一旦ご同意いただいて実験を完了した後、もし同意を撤回される場合は「同意撤回書」に日付とIDを記載してご提出ください。
                     なお、研究にご協力いただけないことで、あなたの不利益に繋がることは一切ありません。
                     同意を撤回された場合には、提供いただいたアンケート回答は破棄され、以後研究に用いられることはありません。
                     ただし、本実験の内容が論文として出版された後には、同意を撤回しても、アンケート回答を破棄することができませんのでご理解ください。<br><br>
@@ -198,13 +198,13 @@ if st.session_state.page == "home":
                 "日付を入力してください。", 
                 value=datetime.now().date()  # 初期値を今日の日付に設定
             )
-            user_id = st.text_input("ユーザIDを入力してください。")
+            user_id = st.text_input("ユーザ名を入力してください。")
 
             submitted_form = st.form_submit_button(label="提出します。")
 
         if submitted_form:
             if not user_id.strip():
-                st.error("ユーザIDは空白にできません。適切な値を入力してください。")
+                st.error("ユーザ名は空白にできません。適切な値を入力してください。")
             elif st.session_state.form_submitted < 7:
                 st.error("全ての同意事項にチェックを入れてください。")
             else:
@@ -443,7 +443,7 @@ elif st.session_state.page == "t1p1":
                             st.session_state.file = f
 
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         # 再トライ準備
                         retries += 1
@@ -546,7 +546,7 @@ elif st.session_state.page == "t1p2":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -648,7 +648,7 @@ elif st.session_state.page == "t1p3":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -750,7 +750,7 @@ elif st.session_state.page == "t1p4":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -852,7 +852,7 @@ elif st.session_state.page == "t1p5":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -976,7 +976,7 @@ elif st.session_state.page == "t2p1":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1078,7 +1078,7 @@ elif st.session_state.page == "t2p2":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1180,7 +1180,7 @@ elif st.session_state.page == "t2p3":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1282,7 +1282,7 @@ elif st.session_state.page == "t2p4":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1384,7 +1384,7 @@ elif st.session_state.page == "t2p5":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1486,7 +1486,7 @@ elif st.session_state.page == "t2p6":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1588,7 +1588,7 @@ elif st.session_state.page == "t2p7":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1690,7 +1690,7 @@ elif st.session_state.page == "t2p8":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1792,7 +1792,7 @@ elif st.session_state.page == "t2p9":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1894,7 +1894,7 @@ elif st.session_state.page == "t2p10":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -1996,7 +1996,7 @@ elif st.session_state.page == "t2p11":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -2098,7 +2098,7 @@ elif st.session_state.page == "t2p12":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -2200,7 +2200,7 @@ elif st.session_state.page == "t2p13":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -2302,7 +2302,7 @@ elif st.session_state.page == "t2p14":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -2404,7 +2404,7 @@ elif st.session_state.page == "t2p15":
                             f.Upload()
                             st.session_state.file = f
                             if retries == max_retries:
-                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。再度回答を選んでから「回答を提出」ボタンを押してください。")
+                                st.error(f"申し訳ありませんが、課題の提出がうまくいきませんでした。右上の黒い点が3つあるボタンから「Rerun」を押してください。")
 
                         retries += 1
 
@@ -2481,6 +2481,9 @@ elif st.session_state.page == "questionnaire":
                 elif len(st.session_state.reasons[i]) < 15:
                     st.error("理由は15文字以上で回答してください。")
                     break
+                elif not st.session_state.reasons[i].strip():
+                    st.error("理由は15文字以上で回答してください。")
+                    break
                 else:
                     count += 1
         except:
@@ -2543,11 +2546,12 @@ elif st.session_state.page == "questionnaire":
 
         st.markdown("では、ランサーズのフォームに戻って合言葉を入力してください。", unsafe_allow_html=True)
 
-        st.markdown("また、もし研究参加への同意を撤回される場合は、以下の同意撤回書をダウンロードしてください。", unsafe_allow_html=True)
+        #st.markdown("また、もし研究参加への同意を撤回される場合は、以下の同意撤回書をダウンロードしてください。", unsafe_allow_html=True)
 
-        st.download_button(
-            label="同意撤回書をダウンロードする",
-            data= "./disagreement.docx",
-            file_name="同意書.docx",
-            mime="application/msword"
-        )
+        #st.download_button(
+        #    label="同意撤回書をダウンロードする",
+        #    data= "./disagreement.docx",
+        #    file_name="同意撤回書.docx",
+        #    mime="application/msword"
+        #)
+
