@@ -418,8 +418,8 @@ elif st.session_state.page == "t1p1":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -574,8 +574,8 @@ elif st.session_state.page == "t1p2":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -735,8 +735,8 @@ elif st.session_state.page == "t1p3":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -896,8 +896,8 @@ elif st.session_state.page == "t1p4":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -1058,8 +1058,8 @@ elif st.session_state.page == "t1p5":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -1245,8 +1245,8 @@ elif st.session_state.page == "t2p1":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -1405,8 +1405,8 @@ elif st.session_state.page == "t2p2":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -1564,8 +1564,8 @@ elif st.session_state.page == "t2p3":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -1724,8 +1724,8 @@ elif st.session_state.page == "t2p4":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -1884,8 +1884,8 @@ elif st.session_state.page == "t2p5":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -2044,8 +2044,8 @@ elif st.session_state.page == "t2p6":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -2204,8 +2204,8 @@ elif st.session_state.page == "t2p7":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -2364,8 +2364,8 @@ elif st.session_state.page == "t2p8":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -2524,8 +2524,8 @@ elif st.session_state.page == "t2p9":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -2684,8 +2684,8 @@ elif st.session_state.page == "t2p10":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -2844,8 +2844,8 @@ elif st.session_state.page == "t2p11":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -3004,8 +3004,8 @@ elif st.session_state.page == "t2p12":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -3164,8 +3164,8 @@ elif st.session_state.page == "t2p13":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -3324,8 +3324,8 @@ elif st.session_state.page == "t2p14":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
@@ -3484,8 +3484,8 @@ elif st.session_state.page == "t2p15":
                 is_match_list = df_feature.apply(lambda row: is_row_matching(row, [st.session_state.selected_option,]), axis=1).tolist()
                 pred = 0
                 count = 0
-                for m in is_match_list:
-                    if m == True:
+                for m in range(len(is_match_list)):
+                    if is_match_list[m] == True:
                         pred += y_pred[m]
                         count += 1
                 if count > 0:
