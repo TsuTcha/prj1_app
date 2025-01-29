@@ -2102,7 +2102,7 @@ elif st.session_state.page == "t2p6":
 
                             # A1のセルに入力
                             worksheet.update_acell('F20', text1)
-                            worksheet.update_acell('f21', str(elapsed_time))
+                            worksheet.update_acell('F21', str(elapsed_time))
                             worksheet.update_acell('F22', str(st.session_state.select_feature))
 
                             st.session_state.question_t2p6_finished = True
