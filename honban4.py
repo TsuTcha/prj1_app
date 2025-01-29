@@ -345,6 +345,8 @@ elif st.session_state.page == "task1":
 
 elif st.session_state.page == "t1p1":
 
+    st.markdown(st.session_state.custom_css, unsafe_allow_html=True)
+
     # セッション状態の初期化
     if "start_button_clicked_t1p1" not in st.session_state:
         st.session_state.start_button_clicked_t1p1 = False
