@@ -205,6 +205,10 @@ if st.session_state.page == "home":
                 st.session_state.form_submitted += 1 
             st.markdown("<hr>", unsafe_allow_html=True)
 
+            if st.checkbox('2025年1月28日に行った「【研究アンケート調査】AIのヒントを参考にして問題を解く」には参加していません。'):
+                st.session_state.form_submitted += 1 
+            st.markdown("<hr>", unsafe_allow_html=True)
+
             selected_date = st.date_input(
                 "日付を入力してください。", 
                 value=datetime.now().date()  # 初期値を今日の日付に設定
@@ -216,7 +220,7 @@ if st.session_state.page == "home":
         if submitted_form:
             if not user_id.strip():
                 st.error("ユーザ名は空白にできません。適切な値を入力してください。")
-            elif st.session_state.form_submitted < 7:
+            elif st.session_state.form_submitted < 8:
                 st.error("全ての同意事項にチェックを入れてください。")
             else:
                 #st.session_state.form_submitted = True
