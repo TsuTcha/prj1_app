@@ -29,6 +29,8 @@ st.session_state.query_params = st.query_params
 st.session_state.file_name = st.session_state.query_params.get("user_id")
 #st.session_state.file_name = "test"
 
+st.session_state.already_user = st.secrets["already_user"].split(',')
+
 # 初期状態を設定
 if "page" not in st.session_state:
     st.session_state.page = "home"
@@ -61,6 +63,10 @@ if st.session_state.page == "home":
 
 
     st.markdown('# ユーザアンケート トップページ')
+
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.warning("2025年1月28日に行った「【研究アンケート調査】AIのヒントを参考にして問題を解く」に参加された方は、申し訳ありませんがお断りさせていただきます。")
+    st.markdown("<hr>", unsafe_allow_html=True)
 
     st.markdown('この度は、調査にご協力いただき誠にありがとうございます。 <br> 以下の指示に従って、順番にタスクを行ってください。', unsafe_allow_html=True)
 
@@ -223,6 +229,8 @@ if st.session_state.page == "home":
                 st.error("ユーザ名は空白にできません。適切な値を入力してください。")
             elif st.session_state.form_submitted < 8:
                 st.error("全ての同意事項にチェックを入れてください。")
+            elif user_id.strip() in st.session_state.already_user:
+                st.error("申し訳ありませんが、前回のテストに参加された方はお断りさせていただいております。そうでない場合は、ytsuchi28054@g.ecc.u-tokyo.ac.jpまでご連絡ください。")
             else:
                 #st.session_state.form_submitted = True
 
